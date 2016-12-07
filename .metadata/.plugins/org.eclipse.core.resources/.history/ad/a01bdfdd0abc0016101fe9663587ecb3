@@ -1,0 +1,8 @@
+package br.com.bean;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
+public class ObjProduto {
+
+}

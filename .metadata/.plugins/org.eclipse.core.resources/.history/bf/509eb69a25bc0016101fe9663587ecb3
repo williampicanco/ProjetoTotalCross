@@ -1,0 +1,15 @@
+package br.com.cadproduto;
+
+import totalcross.sys.Settings;
+import totalcross.ui.MainWindow;
+import totalcross.ui.MenuBar;
+import totalcross.ui.MenuItem;
+import totalcross.ui.UIColors;
+import totalcross.ui.event.ControlEvent;
+import totalcross.ui.event.Event;
+import totalcross.ui.gfx.Color;
+import br.com.cadproduto.ui.ListaProdutosContainer;
+
+public class CadastroProdutos {
+
+}

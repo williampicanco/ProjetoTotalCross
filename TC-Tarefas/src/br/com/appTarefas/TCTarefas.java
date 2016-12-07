@@ -1,0 +1,59 @@
+package br.com.appTarefas;
+
+import totalcross.sys.Settings;
+import totalcross.ui.MenuBar;
+import totalcross.ui.MenuItem;
+import totalcross.ui.TabbedContainer;
+import totalcross.ui.UIColors;
+import totalcross.ui.event.ControlEvent;
+import totalcross.ui.event.Event;
+import totalcross.ui.gfx.Color;
+import br.com.appTarefas.ui.FormularioDados;
+import br.com.appTarefas.ui.GridContainer;
+import br.com.appTarefas.ui.ServerContainer;
+
+public class TCTarefas extends totalcross.ui.MainWindow {
+
+	public TCTarefas() {
+	    super("TC - Tarefas", BORDER_LOWERED);
+	    setBackColor(UIColors.controlsBack = Color.brighter(Color.BRIGHT,
+	        Color.LESS_STEP));
+	    setUIStyle(Settings.Vista);
+	  }
+	
+	public void initUI() {
+
+	    TabbedContainer tab;
+
+	    add(
+	        tab = new TabbedContainer(new String[] { "Formulário", "Grid", "HTTP" }),
+	        LEFT, TOP, FILL, FILL);
+	    tab.setBorderStyle(BORDER_NONE);
+	    tab.setContainer(0, new FormularioDados());
+	    tab.setContainer(1, new GridContainer());
+	    tab.setContainer(2, new ServerContainer());
+
+	    tab.setActiveTab(0);
+
+	    setMenuBar(new MenuBar(new MenuItem[][] { new MenuItem[] {
+	        new MenuItem("Arquivo"), new MenuItem("Sair") } }));
+
+	  }
+	
+	public void onEvent(Event event) {
+
+	    switch (event.type) {
+	      case ControlEvent.WINDOW_CLOSED: {
+	        if (event.target == menubar) {
+	          switch (((MenuBar) menubar).getSelectedIndex()) {
+	            case 1: // sair
+	              exit(0);
+	              break;
+	          }
+	        }
+	        break;
+	      }
+	    }
+	  }
+	
+}

@@ -1,0 +1,54 @@
+package br.com.cadproduto.ui;
+
+import totalcross.io.DataStream;
+import totalcross.io.File;
+import totalcross.io.IOException;
+import totalcross.sys.Convert;
+import totalcross.sys.InvalidNumberException;
+import totalcross.sys.Settings;
+import totalcross.ui.Button;
+import totalcross.ui.ComboBox;
+import totalcross.ui.Container;
+import totalcross.ui.Control;
+import totalcross.ui.Edit;
+import totalcross.ui.ImageControl;
+import totalcross.ui.Label;
+import totalcross.ui.Window;
+import totalcross.ui.dialog.FileChooserBox;
+import totalcross.ui.dialog.MessageBox;
+import totalcross.ui.dialog.FileChooserBox.Filter;
+import totalcross.ui.event.ControlEvent;
+import totalcross.ui.event.Event;
+import totalcross.ui.font.Font;
+import totalcross.ui.image.Image;
+import br.com.cadproduto.bean.Produto;
+import br.com.cadproduto.dao.ProdutoDAO;
+import br.com.cadproduto.ui.util.ButtonUtil;
+
+public class EditaProdutoWindow  extends Window implements Filter {
+
+	public static final int MODO_INSERIR = 1;
+	  public static final int MODO_ATUALIZAR = 2;
+	  public static final int MODO_REMOVER = 3;
+	  public static final int MODO_VER = 4;
+
+	  private ImageControl img;
+	  private Edit edtId;
+	  private Edit edtNome;
+	  private ComboBox cbxCategoria;
+	  private int modo;
+	  private String foto;
+	  private Button btnSalvar, btnFoto;
+
+	  public EditaProdutoWindow(Produto prod, int modo) {
+	    this.appObj = prod;
+	    this.modo = modo;
+	    
+	  }
+	  
+	  public boolean accept(File f) throws IOException {
+		    return f != null && (f.isDir() || f.getPath().endsWith(".jpg"));
+	  }
+	  
+	  
+}

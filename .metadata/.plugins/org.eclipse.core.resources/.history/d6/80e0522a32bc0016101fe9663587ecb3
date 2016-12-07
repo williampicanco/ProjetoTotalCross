@@ -1,0 +1,13 @@
+package br.com.appTarefas.ui;
+
+import totalcross.sys.Vm;
+import totalcross.ui.Container;
+import totalcross.ui.Grid;
+
+public class GridContainer extends Container implements Runnable {
+
+	private Grid grid;
+	private boolean estaRodando = true;
+	private int contador;
+	
+}

@@ -1,0 +1,16 @@
+package br.com.appTarefas.ui;
+
+import totalcross.io.IOException;
+import totalcross.io.IllegalArgumentIOException;
+import totalcross.io.Stream;
+import totalcross.net.HttpStream;
+import totalcross.net.URI;
+import totalcross.ui.Container;
+import totalcross.ui.ListBox;
+import totalcross.xml.SyntaxException;
+import totalcross.xml.XmlTokenizer;
+
+public class ServerContainer {
+
+	
+}

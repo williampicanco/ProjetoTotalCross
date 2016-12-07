@@ -1,0 +1,12 @@
+package br.com.cadproduto.ui.util;
+
+import totalcross.io.IOException;
+import totalcross.ui.Button;
+import totalcross.ui.font.Font;
+import totalcross.ui.gfx.Color;
+import totalcross.ui.image.Image;
+import totalcross.ui.image.ImageException;
+
+public class ButtonUtil {
+
+}

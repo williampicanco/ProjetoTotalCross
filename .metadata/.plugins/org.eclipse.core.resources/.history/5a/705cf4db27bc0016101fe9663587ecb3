@@ -1,0 +1,9 @@
+package br.com.cadproduto.dao;
+
+public class ProdutoDAO {
+
+	/**
+	 * Classe responsável por persistir e recuperar os produtos do SGBD
+	 * @author William Picanço
+	 */
+}

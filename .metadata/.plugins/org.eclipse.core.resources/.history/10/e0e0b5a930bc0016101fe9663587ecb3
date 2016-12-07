@@ -1,0 +1,27 @@
+package br.com.appTarefas.ui;
+
+import totalcross.ui.Button;
+import totalcross.ui.ComboBox;
+import totalcross.ui.Container;
+import totalcross.ui.Control;
+import totalcross.ui.Edit;
+import totalcross.ui.Grid;
+import totalcross.ui.Label;
+import totalcross.ui.dialog.MessageBox;
+import totalcross.ui.event.ControlEvent;
+import totalcross.ui.event.Event;
+import totalcross.ui.font.Font;
+
+public class FormularioDados extends Container implements Runnable{
+
+	public static final int BOTAO_SALVAR = 10001;
+	  public static final int BOTAO_LIMPAR = 10002;
+
+	  private Edit edtNome;
+	  private Edit edtFone;
+	  private ComboBox cbxSexo;
+	  private Button btnSalvar;
+	  private Button btnLimpar;
+	  private Grid grid;
+	
+}

@@ -1,0 +1,51 @@
+package br.com.bean;
+
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
+public class ObjProduto {
+
+	 @XStreamAsAttribute
+	 private String nome;
+
+	  @XStreamAsAttribute
+	  private String tipo;
+
+	  @XStreamAsAttribute
+	  private String categoria;
+
+	  public ObjProduto()
+	  {
+		  this(null, null, null);
+	  }
+	  
+	  public ObjProduto(String nome, String tipo, String categoria) {
+		    this.nome = nome;
+		    this.tipo = tipo;
+		    this.categoria = categoria;
+		  }
+	  
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+}

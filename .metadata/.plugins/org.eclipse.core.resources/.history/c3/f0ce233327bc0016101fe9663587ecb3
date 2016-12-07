@@ -1,0 +1,37 @@
+package br.com.cadproduto.bean;
+
+public class Produto {
+
+	 /**
+	   *  Identificador único do objeto 
+	   */
+	  public int id;
+	  /** 
+	   * Nome do Produto 
+	   */
+	  public String nome;
+	  /**
+	   * Tipo do Produto
+	   */
+	  public String categoria;
+	  /**
+	   * Foto do Produto
+	   */
+	  public byte[] foto;
+
+	  public Funcionario() {
+	    this(-1, null, null, null);
+	  }
+
+	  public Funcionario(int id, String nome, String cargo, byte[] foto) {
+	    this.id = id;
+	    this.nome = nome;
+	    this.cargo = cargo;
+	    this.foto = foto;
+	  }
+
+	  public String[] toGridLine() {
+	    return new String[] { id + "", nome, cargo };
+	  }
+
+}

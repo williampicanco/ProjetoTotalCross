@@ -1,0 +1,5 @@
+package br.com.cadfuncionario.ui.util;
+
+public class ButtonUtil {
+
+}

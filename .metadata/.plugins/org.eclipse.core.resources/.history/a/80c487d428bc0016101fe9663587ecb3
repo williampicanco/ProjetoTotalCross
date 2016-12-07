@@ -1,0 +1,68 @@
+package br.com.cadproduto.dao;
+
+import litebase.AlreadyCreatedException;
+import litebase.LitebaseConnection;
+import litebase.PreparedStatement;
+import litebase.ResultSet;
+import totalcross.util.Vector;
+import br.com.cadproduto.bean.Produto;
+
+/**
+ * Classe responsável por persistir e recuperar os produtos do SGBD
+ * @author William Picanço
+ */
+public class ProdutoDAO {
+
+	 /** Singleton */
+	  public static final ProdutoDAO INSTANCE = new ProdutoDAO();
+	  
+	  /** Pega a conexão com o SGBD */
+	  private final LitebaseConnection CON;
+
+	  private final PreparedStatement pStmtInserir;
+	  private final PreparedStatement pStmtAtualizar;
+	  private final PreparedStatement pStmtRemover;
+	  private final PreparedStatement pStmtTodos;
+	  private final PreparedStatement pStmtPorId;
+	  private final PreparedStatement pStmtGeraId;
+	  private final PreparedStatement pStmtFoto;
+
+
+	  private ProdutoDAO() {
+
+		    CON = LitebaseConnection.getInstance("JVMG");
+
+		    try {
+		      CON.execute("create table prod (id int primary key, nome char(40), "
+		          + "categoria char(40), " + "foto blob(16384))");
+		    }
+		    catch (AlreadyCreatedException e) {}
+
+		    pStmtInserir = CON
+		        .prepareStatement("insert into prod (id, nome, categoria, foto) values(?,?,?,?)");
+		    pStmtAtualizar = CON
+		        .prepareStatement("update prod set nome = ?, cargo = ?, foto = ? where id = ?");
+		    pStmtRemover = CON.prepareStatement("delete from prod where id = ? ");
+		    pStmtTodos = CON.prepareStatement("select id, nome, categoria from prod");
+		    pStmtPorId = CON
+		        .prepareStatement("select id, nome, categoria from prod where id = ? ");
+		    pStmtGeraId = CON.prepareStatement(" select max(id) as vId from prod ");
+		    pStmtFoto = CON.prepareStatement("select foto from prod where id = ? ");
+
+		  }
+	  
+		  public boolean atualizar(Produto p) {
+	
+			    if (p.id <= 0) { return inserir(p); }
+	
+			    pStmtAtualizar.clearParameters();
+			    pStmtAtualizar.setString(0, p.nome);
+			    pStmtAtualizar.setString(1, p.categoria);
+			    pStmtAtualizar.setBlob(2, p.foto);
+			    pStmtAtualizar.setInt(3, p.id);
+	
+			    return pStmtAtualizar.executeUpdate() > 0;
+		  }
+	  
+
+}

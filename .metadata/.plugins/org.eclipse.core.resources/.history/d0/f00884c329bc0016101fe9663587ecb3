@@ -1,0 +1,31 @@
+package br.com.cadproduto.ui;
+
+import totalcross.io.DataStream;
+import totalcross.io.File;
+import totalcross.io.IOException;
+import totalcross.sys.Convert;
+import totalcross.sys.InvalidNumberException;
+import totalcross.sys.Settings;
+import totalcross.ui.Button;
+import totalcross.ui.ComboBox;
+import totalcross.ui.Container;
+import totalcross.ui.Control;
+import totalcross.ui.Edit;
+import totalcross.ui.ImageControl;
+import totalcross.ui.Label;
+import totalcross.ui.Window;
+import totalcross.ui.dialog.FileChooserBox;
+import totalcross.ui.dialog.MessageBox;
+import totalcross.ui.dialog.FileChooserBox.Filter;
+import totalcross.ui.event.ControlEvent;
+import totalcross.ui.event.Event;
+import totalcross.ui.font.Font;
+import totalcross.ui.image.Image;
+import br.com.codejr.cadfuncionario.bean.Funcionario;
+import br.com.codejr.cadfuncionario.dao.FuncionarioDAO;
+import br.com.codejr.cadfuncionario.ui.util.ButtonUtil;
+
+public class EditaProdutoWindow  extends Window implements Filter {
+
+	
+}

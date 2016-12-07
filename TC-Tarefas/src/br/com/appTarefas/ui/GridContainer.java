@@ -1,0 +1,58 @@
+package br.com.appTarefas.ui;
+
+import java.awt.MenuBar;
+
+import totalcross.sys.Vm;
+import totalcross.ui.Container;
+import totalcross.ui.Grid;
+import totalcross.ui.MenuItem;
+import totalcross.ui.TabbedContainer;
+
+public class GridContainer extends Container implements Runnable {
+
+	private Grid grid;
+	private boolean estaRodando = true;
+	private int contador;
+	
+	public void initUI() {
+
+	    add(grid = new Grid(new String[] { "Coluna" }, false), LEFT, TOP, FILL,
+	        FILL);
+
+	    new Thread(this).start();
+
+	    TabbedContainer tab;
+	    add(
+	    	tab = new TabbedContainer(new String[] {"Formulário", "Grid", "HTTP"}),
+	    	LEFT, TOP, FILL, FILL);
+	    tab.setBorderStyle(BORDER_NONE);
+	    tab.setContainer(0, new FormularioDados());
+	    tab.setContainer(1, new GridContainer());
+	    tab.setContainer(2, new ServerContainer());
+	    
+	    tab.setActiveTab(0);
+	    
+	    //setMenuBar(new MenuBar (new MenuItem[][] {new MenuItem[] { new MenuItem("Arquivo"), new MenuItem("Sair") } } ) );
+	    
+	  }
+	
+	public void run() {
+
+	    while (estaRodando) {
+	      grid.add(new String[] { "Linha " + contador });
+	      contador++;
+
+	      if (contador >= 20) {
+	        grid.clear();
+	        contador = 0;
+	      }
+	      // Só para dar uma pequena parada na thread
+	      Vm.sleep(100);
+	      // Qdo tem o sleep, precisa do repaint
+	      repaintNow();
+
+	    }
+
+	  }
+	
+}

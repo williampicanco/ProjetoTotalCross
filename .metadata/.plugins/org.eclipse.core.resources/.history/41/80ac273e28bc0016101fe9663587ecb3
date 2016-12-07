@@ -1,0 +1,32 @@
+package br.com.cadproduto.dao;
+
+import litebase.AlreadyCreatedException;
+import litebase.LitebaseConnection;
+import litebase.PreparedStatement;
+import litebase.ResultSet;
+import totalcross.util.Vector;
+import br.com.cadproduto.bean.Produto;
+
+/**
+ * Classe responsável por persistir e recuperar os produtos do SGBD
+ * @author William Picanço
+ */
+public class ProdutoDAO {
+
+	 /** Singleton */
+	  public static final ProdutoDAO INSTANCE = new ProdutoDAO();
+	  
+	  /** Pega a conexão com o SGBD */
+	  private final LitebaseConnection CON;
+
+	  private final PreparedStatement pStmtInserir;
+	  private final PreparedStatement pStmtAtualizar;
+	  private final PreparedStatement pStmtRemover;
+	  private final PreparedStatement pStmtTodos;
+	  private final PreparedStatement pStmtPorId;
+	  private final PreparedStatement pStmtGeraId;
+	  private final PreparedStatement pStmtFoto;
+
+
+
+}
